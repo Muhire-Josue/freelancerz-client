@@ -1,11 +1,29 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from "react-redux";
+import "./App.css";
+import "./views/styles/Auth.css"
+import store from "./store";
+import register from './views/register';
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   return (
-    <div>
-    </div>
-  );
+    <Provider store={store}>
+      <ToastContainer />
+      <Router>
+        <Switch>
+          <Route exact path='/register' component={register} />
+        </Switch>
+      </Router>
+    </Provider>
+  )
 }
 
 export default App;
