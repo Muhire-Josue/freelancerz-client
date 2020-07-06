@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
+import '../styles/Auth.css'
 
 const Login = ({ login, auth: { isAuthenticated } }) => {
     const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const Login = ({ login, auth: { isAuthenticated } }) => {
         login({ email, password });
     }
     if (isAuthenticated) {
-        return <Redirect to="/home"/>
+        return <Redirect to="/jobs/new"/>
      }
     return (
         <div className="main">

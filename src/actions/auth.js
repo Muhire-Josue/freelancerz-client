@@ -1,4 +1,6 @@
 import axios from 'axios';
+import axiosUtil from '../utils/axiosUtil';
+import { toast } from 'react-toastify';
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
@@ -7,8 +9,8 @@ import {
     SET_ALERT,
     REGISTER_START,
 } from './types';
-import { toast } from 'react-toastify';
 
+const { postData } = axiosUtil;
 export const createUserAccount = ({ firstName, lastName, email, password, phoneNumber, userTypeId }) => async dispatch => {
     const config = {
         headers: {
@@ -18,7 +20,7 @@ export const createUserAccount = ({ firstName, lastName, email, password, phoneN
     const body = JSON.stringify({ firstName, lastName, email, password, phoneNumber, userTypeId });
     try {
         dispatch({ type: REGISTER_START });
-        const res = await axios.post('https://freelancerz-app.herokuapp.com/api/auth/signup', body, config);
+        const res = await axios.post(`http://localhost:3000/api/auth/signup`, body, config);
         const data = res.data;
         dispatch({
             type: REGISTER_SUCCESS,
@@ -39,14 +41,10 @@ export const createUserAccount = ({ firstName, lastName, email, password, phoneN
 };
 
 export const login = ({ email, password }) => async dispatch => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
     const body = JSON.stringify({ email, password });
     try {
-        const res = await axios.post('https://freelancerz-app.herokuapp.com/api/auth/login', body, config);
+        // const res = await axios.post(`http://localhost:3000/api/auth/login`, body, config);
+        const res = await postData('/api/auth/login', body);
         const data = res.data;
         dispatch({
             type: LOGIN_SUCCESS,
