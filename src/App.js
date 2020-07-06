@@ -6,7 +6,9 @@ import { Provider } from "react-redux";
 import "./App.css";
 import "./views/styles/Auth.css"
 import store from "./store";
-import register from './views/register';
+import Register from './views/auth/Register';
+import Login from './views/auth/Login';
+
 import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
@@ -19,7 +21,8 @@ function App() {
       <ToastContainer />
       <Router>
         <Switch>
-          <Route exact path='/register' component={register} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/login' component={Login} />
         </Switch>
       </Router>
     </Provider>

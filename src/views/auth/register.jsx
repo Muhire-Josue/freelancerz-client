@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link,Redirect } from 'react-router-dom';
-import { createUserAccount } from '../actions/auth';
+import { createUserAccount } from '../../actions/auth';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-const Register = ({ createUserAccount, auth: { isAuthenticated } }) => {
+
+const Register = ({ createUserAccount, auth: { isAuthenticated, loading } }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -18,7 +21,9 @@ const Register = ({ createUserAccount, auth: { isAuthenticated } }) => {
     }
     const onSubmit = async (e) => {
         e.preventDefault();
-        await createUserAccount({ firstName, lastName, email, password, phoneNumber, userTypeId:  parseInt(userTypeId) });
+        if (!loading) {
+            await createUserAccount({ firstName, lastName, email, password, phoneNumber, userTypeId:  parseInt(userTypeId) });
+        }
     }
     if (isAuthenticated) {
        return <Redirect to="/home"/>
@@ -50,14 +55,15 @@ const Register = ({ createUserAccount, auth: { isAuthenticated } }) => {
                             <input type="text" name="github-username" id="title" placeholder="GitHub username" />
                         </div>
                         <div className="form-submit">
-                            <input type="submit" name="submit" id="submit" className="submit" value="Create account" />
+                            <button name="submit" id="submit" className="submit">
+                                {loading ? <FontAwesomeIcon color='white' style={{fontSize: '20px'}} icon={faSpinner} pulse /> : ' Create Account'}
+                            </button>
                         </div>
                         <div className="form-check">
                             <Link to="/login" className="term-service">Log into your account</Link>
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     )
