@@ -1,0 +1,247 @@
+.brand-logo {
+    margin-left: 25px;
+}
+
+/* .header-jobs-bg-img {
+    background: url(https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?cs=srgb&dl=pexels-negative-space-160107.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 200px;
+    color: #ffffff;
+    margin-top: -23px; */
+/* } */
+.showcase-application{
+    background: url(https://images.pexels.com/photos/955395/pexels-photo-955395.jpeg?cs=srgb&dl=pexels-cytonn-photography-955395.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 200px;
+    color: #ffffff;
+    margin-top: -22px;
+
+}
+.showcase-add-job{
+    background: url(https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?cs=srgb&dl=pexels-christina-morillo-1181244.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    color: #ffffff;
+    margin-top: -22px;
+}
+.jobs-bg-img{
+    background: url(https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?cs=srgb&dl=pexels-thisisengineering-3861964.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    color: #ffffff;
+    margin-top: -22px;
+}
+.job-bg-img{
+    background: url(https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg?cs=srgb&dl=pexels-negative-space-160107.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    color: #ffffff;
+    margin-top: -22px;
+}
+
+input.search-field {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    border-radius: 2px;
+    border: 0;
+    border-radius: 5px;
+    height: 36px;
+    padding: 8px 8px 8px 60px;
+    width: 200px;
+    background: white;
+    transition: background 0.2s, width .2s;
+}
+
+input.search-field:hover {
+    background: #ebebeb;
+}
+
+.searchbox {
+    position: relative;
+}
+
+ ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.54);
+}
+
+input.search-field:focus {
+    outline: none;
+    width: 300px;
+    color: #212121;
+}
+
+input.search-field:focus:hover {
+    background: #f7f7f7;
+}
+
+.search-content {
+    color: #303c42;
+    width: 90%;
+    margin: auto;
+    height: auto;
+    padding: 8px 10px;
+}
+
+.search-heading {
+    color: #757575;
+    display: block;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+     ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: transparent;
+    }
+    input.search-field {
+        width: 1px;
+        margin-right: 0px;
+        padding: 8px 25px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+    input.search-field~.search-popup {
+        width: 1px;
+        margin-right: 0px;
+        padding: 8px 25px;
+    }
+    input.search-field:focus {
+        margin-right: 0px;
+        width: 100vw;
+        padding: 8px 8px 8px 50px;
+    }
+    input.search-field:focus~.search-popup {
+        width: 100vw;
+    }
+    .search-content {
+        width: 100%;
+        padding: 8px 8px;
+    }
+}
+
+.form-bg-img {
+    background: url(https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?cs=srgb&dl=pexels-christina-morillo-1181676.jpg&fm=jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    color: #ffffff;
+}
+
+.section-form__login {
+    margin-top: 10%;
+    margin-left: -15%;
+}
+
+.form__login-banner {
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.section-form__signup {
+    margin-top: 5%;
+    margin-left: -15%;
+}
+
+.job-type {
+    padding: 3px;
+    border-radius: 4px;
+    background: #2196F3;
+    color: white;
+}
+
+.price-tag {
+    font-style: italic;
+    font-size: 20px;
+}
+
+.price {
+    font-style: normal;
+    font-weight: bold;
+}
+.tech-tag{
+    padding: 3px 15px;
+    padding-bottom: 6px;
+    color: white;
+    border-radius: 5px;
+    font-size: 13px !important;
+}
+
+.section-jobs {
+    margin-top: 15px;
+}
+
+.space-up {
+    margin-top: 10px !important;
+}
+
+.search-form {
+    margin-top: 25px;
+}
+
+.reduce-width {
+    max-width: 60%;
+}
+
+.move-right {
+    margin: 2%;
+}
+
+.section-job {
+    margin-top: 5%;
+}
+
+.profile-img {
+    width: 20%;
+    max-height: 30vh;
+    border-radius: 50% !important;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.username {
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+.github-btn {
+    margin-right: 70px;
+}
+
+.profile-techSkills {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.section-application-info {
+    margin-top: 5%;
+    margin-left: 10%;
+    max-width: 70rem !important;
+}
+
+.applicant-username {
+    margin-top: 20px;
+}
+
+.applicant-username {
+    font-size: 23px;
+}
+
+.recommendation-badge {
+    margin-top: 20px;
+    padding: 5px 18px;
+    border-radius: 4px;
+    color: white;
+    margin-left: 20px;
+    font-size: 15px !important;
+}
+.approve-application-btn{
+    margin-bottom: 20px;
+}

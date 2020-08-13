@@ -4,6 +4,7 @@ import { createUserAccount } from '../../actions/auth';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import '../styles/Auth.css'
 
 
 const Register = ({ createUserAccount, auth: { isAuthenticated, loading } }) => {
