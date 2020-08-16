@@ -22,7 +22,7 @@ function App() {
                     <Route exact path='/register' component={Register} />
                     <Route exact path='/login' render={(props) => <Login props />} />
                     <Route exact path='/jobs' component={Jobs} />
-                    <Route exact path='/job' component={Job} />
+                    <Route exact path='/job/:id' render={(props) => !localStorage.token ? Redirect('/login') : <Job />}  />
                     <Route exact path='/jobs/new' render={(props) => !localStorage.token ? Redirect('/login') : <AddJob />} />
                 </Switch>
             </Router>
