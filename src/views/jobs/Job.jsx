@@ -8,14 +8,16 @@ import '../styles/main.css';
 import '../styles/materialize.min.css';
 
 
-const Job = ({ job: { job }, GetJob, match}) => {
+const Job = ({ job: { job }, GetJob }) => {
+    const { jobId } = localStorage;
     useEffect(() => {
-        GetJob(1);
-        console.log('match :>> ', this.props.match.params);
-    }, [GetJob])
+        GetJob(jobId);
+    }, [GetJob, jobId])
     const { title, jobType, description, price, yearsOfExperience, startDate, endDate } = job;
+    console.log('job ==>', job)
+    const { firstName, lastName, email, phoneNumber, linkedIn } = job.jobOwner;
     return (
-        
+
         <div className="blue-grey lighten-5 bg-color">
             <header>
                 <nav className="blue darken-1">
@@ -54,26 +56,26 @@ const Job = ({ job: { job }, GetJob, match}) => {
                                 </div>
                                 <div class="card-action">
                                     <span class="card-title">Client Info</span>
-                                    <p><strong>Names:</strong> John Doe</p>
-                                    <p><i class="fas fa-paper-plane"></i> client@example.com</p>
-                                    <p><i class="fas fa-phone"></i> +250785505897</p>
-                                    <Link to="#" target="blank" class="btn customize-this-btn" href="#"> <i class="fab fa-linkedin"></i> LinkedIn Profile
+                                    <p><strong>Names:</strong> {firstName} {lastName}</p>
+                                    <p><i class="fas fa-paper-plane"></i> {email} </p>
+                                    <p><i class="fas fa-phone"></i> {phoneNumber}</p>
+                                        <Link to="#" target="blank" class="btn customize-this-btn" href={linkedIn}> <i class="fab fa-linkedin"></i> LinkedIn Profile
                                 </Link>
-                                    <br />
-                                    <br />
-                                    <button href="#" class="btn blue move-right">Apply <i class="fas fa-check"></i>
+                                        <br />
+                                        <br />
+                                        <button href="#" class="btn blue move-right">Apply <i class="fas fa-check"></i>
 
-                                    </button>
+                                        </button>
+                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </div>
     )
 }
 const mapStateToPros = state => ({
-    job: state.job
+                job: state.job
 })
-export default connect(mapStateToPros, { GetJob })(Job);
+export default connect(mapStateToPros, { GetJob})(Job);

@@ -9,3 +9,6 @@ export const SET_LOADING = 'SET_LOADING';
 export const STOP_LOADING = 'STOP_LOADING'
 export const CREATE_JOB = 'CREATE_JOB';
 export const CREATE_JOB_FAIL = 'CREATE_JOB';
+export const VIEW_JOB = 'VIEW_JOB';
+export const VIEW_JOB_FAIL = 'VIEW_JOB_FAIL';
+

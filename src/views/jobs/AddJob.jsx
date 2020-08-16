@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createJob } from '../../actions/jobs';
-import { Select, MenuItem, makeStyles} from '@material-ui/core';
+import { Select, MenuItem, makeStyles } from '@material-ui/core';
 
 import '../styles/main.css';
 import '../styles/materialize.min.css';
 
-const AddJob = ({ createJob }) => {
+const AddJob = ({ createJob, history}) => {
 
     const useStyles = makeStyles((theme) => ({
         formControl: {
-          margin: theme.spacing(1),
-          minWidth: 120,
+            margin: theme.spacing(1),
+            minWidth: 120,
         },
         selectEmpty: {
-          marginTop: theme.spacing(2),
+            marginTop: theme.spacing(2),
         },
     }));
 
     const classes = useStyles();
-    
+
     const [jobData, setJobData] = useState({
         title: '',
         price: '',
@@ -39,7 +39,7 @@ const AddJob = ({ createJob }) => {
     }
     const onSubmit = async (e) => {
         e.preventDefault();
-        await createJob({ title, price: parseInt(price), yearsOfExperience, startDate, endDate, jobType, description });
+        await createJob({ title, price: parseInt(price), yearsOfExperience, startDate, endDate, jobType, description }, history);
     }
     return (
         <div className="blue-grey lighten-5 bg-color">
@@ -125,4 +125,6 @@ const AddJob = ({ createJob }) => {
     )
 }
 
-export default connect(null, { createJob })(AddJob);
+
+
+export default connect(null, { createJob })(withRouter(AddJob));
