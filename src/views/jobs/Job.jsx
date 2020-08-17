@@ -14,7 +14,6 @@ const Job = ({ job: { job }, GetJob }) => {
         GetJob(jobId);
     }, [GetJob, jobId])
     const { title, jobType, description, price, yearsOfExperience, startDate, endDate } = job;
-    console.log('job ==>', job)
     const { firstName, lastName, email, phoneNumber, linkedIn } = job.jobOwner;
     return (
 
@@ -59,23 +58,23 @@ const Job = ({ job: { job }, GetJob }) => {
                                     <p><strong>Names:</strong> {firstName} {lastName}</p>
                                     <p><i class="fas fa-paper-plane"></i> {email} </p>
                                     <p><i class="fas fa-phone"></i> {phoneNumber}</p>
-                                        <Link to="#" target="blank" class="btn customize-this-btn" href={linkedIn}> <i class="fab fa-linkedin"></i> LinkedIn Profile
+                                    <Link to={linkedIn} target="blank" class="btn customize-this-btn"> <i class="fab fa-linkedin"></i> LinkedIn Profile
                                 </Link>
-                                        <br />
-                                        <br />
-                                        <button href="#" class="btn blue move-right">Apply <i class="fas fa-check"></i>
+                                    <br />
+                                    <br />
+                                    <button href="#" class="btn blue move-right">Apply <i class="fas fa-check"></i>
 
-                                        </button>
-                                </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </section>
         </div>
     )
 }
 const mapStateToPros = state => ({
-                job: state.job
+    job: state.job
 })
-export default connect(mapStateToPros, { GetJob})(Job);
+export default connect(mapStateToPros, { GetJob })(Job);
