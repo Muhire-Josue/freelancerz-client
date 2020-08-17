@@ -13,12 +13,14 @@ export const createJob = (job, history) => async dispatch => {
     try {
         const body = JSON.stringify(job);
         const res = await postData('/api/jobs', body);
+        const { data } = res.data;
         dispatch({
             type: CREATE_JOB,
-            payload: res.data.data
+            payload: data
         });
         toast.success(res.data.message);
-        history.push(`/job/${res.data.data}`);
+        localStorage.jobId = data.id;
+        history.push(`/job/`);
     } catch (error) {
         if (error?.response?.data) {
             dispatch({ type: CREATE_JOB_FAIL, payload: error.response.data });
