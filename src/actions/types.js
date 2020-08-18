@@ -11,4 +11,9 @@ export const CREATE_JOB = 'CREATE_JOB';
 export const CREATE_JOB_FAIL = 'CREATE_JOB';
 export const VIEW_JOB = 'VIEW_JOB';
 export const VIEW_JOB_FAIL = 'VIEW_JOB_FAIL';
+export const VIEW_JOBS = 'VIEW_JOBS';
+export const VIEW_JOBS_FAIL = 'VIEW_JOBS_FAIL';
+export const APPLY_SUCCESS = 'APPLY_SUCCESS';
+export const APPLY_FAIL = 'APPLY_FAIL';
+
 
