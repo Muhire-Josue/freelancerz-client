@@ -41,6 +41,7 @@ export const createUserAccount = ({ firstName, lastName, email, password, phoneN
 };
 
 export const login = ({ email, password }) => async dispatch => {
+    localStorage.token = '';
     const body = JSON.stringify({ email, password });
     try {
         // const res = await axios.post(`http://localhost:3000/api/auth/login`, body, config);

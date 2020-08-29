@@ -20,5 +20,10 @@ export default {
             'url': URL,
             'data': data,
 
-        })
+        }),
+        getData: (URL) =>
+            axiosInstance({
+                'method': 'GET',
+                'url': URL
+            }), 
 }

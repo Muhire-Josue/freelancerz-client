@@ -164,6 +164,7 @@ input.search-field:focus:hover {
 .price {
     font-style: normal;
     font-weight: bold;
+    font-size: 15px !important;
 }
 .tech-tag{
     padding: 3px 15px;
@@ -171,6 +172,7 @@ input.search-field:focus:hover {
     color: white;
     border-radius: 5px;
     font-size: 13px !important;
+    margin-right: 5px;
 }
 
 .section-jobs {
@@ -244,4 +246,32 @@ input.search-field:focus:hover {
 }
 .approve-application-btn{
     margin-bottom: 20px;
+}
+
+/* Search bar */
+.search-bar{
+    max-width: 65%;
+}
+
+.search-bar-form{
+    margin-top: 3%;
+}
+.resize-job-container{
+    max-width: 70% !important;
+}
+.job-price{
+    position: relative;
+    left: 85%;
+    margin-top: -5%;
+}
+.shrink-job-type{
+    font-size: 15px !important;
+}
+.jobs-btn{
+    margin-right: 10px;
+}
+.section-view-jobs{
+    max-height: 50px !important;
+    margin-bottom: 5px !important;
+    border-radius: 5px;
 }

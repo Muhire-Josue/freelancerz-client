@@ -5,9 +5,11 @@ import {
     CREATE_JOB_FAIL,
     VIEW_JOB,
     VIEW_JOB_FAIL,
+    VIEW_JOBS,
+    VIEW_JOBS_FAIL,
 } from './types';
 
-const { postData } = axiosUtil;
+const { postData, getData } = axiosUtil;
 
 export const createJob = (job, history) => async dispatch => {
     try {
@@ -19,8 +21,7 @@ export const createJob = (job, history) => async dispatch => {
             payload: data
         });
         toast.success(res.data.message);
-        localStorage.jobId = data.id;
-        history.push(`/job/`);
+        history.push(`/job/${data.id}`);
     } catch (error) {
         if (error?.response?.data) {
             dispatch({ type: CREATE_JOB_FAIL, payload: error.response.data });
@@ -50,6 +51,27 @@ export const GetJob = id => async dispatch => {
             toast.error(error.response.data.error);
         } else if (error.message) {
             dispatch({ type: VIEW_JOB_FAIL, payload: error.message });
+            toast.error(error.message);
+        } else {
+            console.error('Internal error', error)
+        }
+    }
+}
+
+export const GetAllJobs = () => async dispatch =>{
+    try {
+        const res = await getData('/api/jobs?status=opened');
+        const { data } = res.data;
+        dispatch({
+            type: VIEW_JOBS,
+            payload: data
+        });
+    } catch (error) {
+        if (error?.response?.data) {
+            dispatch({ type: VIEW_JOBS_FAIL, payload: error.response.data });
+            toast.error(error.response.data.error);
+        } else if (error.message) {
+            dispatch({ type: VIEW_JOBS_FAIL, payload: error.message });
             toast.error(error.message);
         } else {
             console.error('Internal error', error)
