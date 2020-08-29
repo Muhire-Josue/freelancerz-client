@@ -14,7 +14,7 @@ const Job = ({ GetJob, job: { job }, match, jobApplication }) => {
     useEffect(() => {
         GetJob(id);
     }, [GetJob, id])
-    const { title, jobType, description, price, yearsOfExperience, startDate, endDate, stacks } = job;
+    const { title, jobType, description, price, yearsOfExperience, startDate, endDate } = job;
     const { firstName, lastName, email, phoneNumber, linkedIn } = job?.jobOwner || {};
     return (
 
