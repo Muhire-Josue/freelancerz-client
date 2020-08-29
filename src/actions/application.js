@@ -9,7 +9,7 @@ const { postData } = axiosUtil;
 
 export const jobApplication = application => async dispatch => {
     try {
-        const body = JSON.stringify(application);
+        const body = JSON.stringify({id: application});
         const res = await postData('/api/job/apply', body);
         const { data } = res.data;
         dispatch({
