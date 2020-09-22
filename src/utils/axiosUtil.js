@@ -26,4 +26,11 @@ export default {
                 'method': 'GET',
                 'url': URL
             }), 
+            putData: (URL, data) =>
+            axiosInstance({
+                'method': 'PUT',
+                'url': URL,
+                'data': data,
+    
+            }), 
 }
