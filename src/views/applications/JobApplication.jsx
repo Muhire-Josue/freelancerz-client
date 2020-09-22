@@ -2,20 +2,21 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { GetJob } from '../../actions/jobs';
-import { jobApplication } from '../../actions/application';
+import { viewJobApplications } from '../../actions/application';
+import ApplicantCard from './ApplicantCard';
 
 
 import '../styles/main.css';
 import '../styles/materialize.min.css';
 
 
-const JobApplications = ({ GetJob, job: { job }, match, jobApplication }) => {
+const JobApplications = ({ GetJob, job: { job }, application: { applications }, match, viewJobApplications }) => {
     const { id } = match.params;
     useEffect(() => {
         GetJob(id);
-    }, [GetJob, id])
+        viewJobApplications(id)
+    }, [GetJob, id, viewJobApplications])
     const { title, jobType, description, price, yearsOfExperience, startDate, endDate } = job;
-    const { firstName, lastName, email, phoneNumber, linkedIn } = job?.jobOwner || {};
     return (
 
         <div className="blue-grey lighten-5 bg-color">
@@ -31,7 +32,7 @@ const JobApplications = ({ GetJob, job: { job }, match, jobApplication }) => {
                     </div>
                 </nav>
                 <div className="job-bg-img">
-                    <h4 className="center showcase-jobs"> Job Details</h4>
+                    <h4 className="center showcase-jobs"> Applications</h4>
                 </div>
             </header>
             <section className="section-job">
@@ -54,13 +55,10 @@ const JobApplications = ({ GetJob, job: { job }, match, jobApplication }) => {
                                     </span></p>
                                 </div>
                                 <div className="card-action">
-                                    <span className="card-title">Client Info</span>
-                                    <p><i class="fas fa-user"></i> {firstName} {lastName} </p>
-                                    <p><i className="fas fa-paper-plane"></i> {email} </p>
-                                    <p><i className="fas fa-phone"></i> {phoneNumber}</p>
-                                    <br />
-                                    <a href={linkedIn} target="blank" className="btn customize-this-btn"> <i className="fab fa-linkedin"></i> LinkedIn Profile</a>
-                                    <button onClick={() => jobApplication(id)} className="btn blue move-right">Apply <i className="fas fa-check"></i></button>
+                                    <span className="card-title center-applicant-text">Applicants</span>
+                                    <div className="row">
+                                        {applications.length > 0 && applications.map(jobApplication => (<ApplicantCard id={jobApplication.id} applicant={jobApplication}/>))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -71,6 +69,7 @@ const JobApplications = ({ GetJob, job: { job }, match, jobApplication }) => {
     )
 }
 const mapStateToProps = state => ({
-    job: state.job
+    job: state.job,
+    application: state.application
 })
-export default connect(mapStateToProps, { GetJob, jobApplication })(JobApplications);
+export default connect(mapStateToProps, { GetJob, viewJobApplications })(JobApplications);
