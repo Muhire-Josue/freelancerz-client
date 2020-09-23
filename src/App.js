@@ -11,6 +11,7 @@ import Login from './views/auth/Login';
 import AddJob from './views/jobs/AddJob'
 import Jobs from './views/jobs/Jobs';
 import Job from './views/jobs/Job';
+import JobApplication from './views/applications/JobApplication'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route exact path='/jobs' render={(props) => !localStorage.token ? Redirect('/login') : <Jobs />}  />
                     <Route exact path='/job/:id' render={(props) => !localStorage.token ? Redirect('/login') : <Job {...props} />}  />
                     <Route exact path='/jobs/new' render={(props) => !localStorage.token ? Redirect('/login') : <AddJob />} />
+                    <Route exact path='/applications/:id' render={(props) => !localStorage.token ? Redirect('/login') : <JobApplication {...props}/>} />
                 </Switch>
             </Router>
         </Provider >

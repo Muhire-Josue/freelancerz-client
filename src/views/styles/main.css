@@ -275,3 +275,18 @@ input.search-field:focus:hover {
     margin-bottom: 5px !important;
     border-radius: 5px;
 }
+
+.center-applicant-text{
+    margin-left: 40%;
+    margin-bottom: 1rem;
+}
+
+.recommendation-tag{
+    padding: 3px 15px;
+    padding-bottom: 6px;
+    color: white;
+    border-radius: 5px;
+    font-size: 13px !important;
+    font-weight: bold;
+    margin-left: 60px;
+}
