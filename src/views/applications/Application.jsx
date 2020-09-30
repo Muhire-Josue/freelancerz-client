@@ -17,7 +17,6 @@ const Application = ({ GetJob, job: { job }, application: { application }, match
     }, [GetJob, id, viewJobApplication])
     const { title, jobType, description, price, yearsOfExperience, startDate, endDate } = job;
     const { firstName, lastName, email, phoneNumber, linkedIn } = job?.jobOwner || {};
-    console.log('application', application.users);
     return (
 
         <div className="blue-grey lighten-5 bg-color">
@@ -33,7 +32,7 @@ const Application = ({ GetJob, job: { job }, application: { application }, match
                     </div>
                 </nav>
                 <div className="job-bg-img">
-                    <h4 className="center showcase-jobs"> Job Details</h4>
+                    <h4 className="center showcase-jobs"> Application Details</h4>
                 </div>
             </header>
             <section className="section-job">
@@ -56,13 +55,13 @@ const Application = ({ GetJob, job: { job }, application: { application }, match
                                     </span></p>
                                 </div>
                                 <div className="card-action">
-                                    <span className="card-title">Client Info</span>
-                                    <p><i class="fas fa-user"></i> {firstName} {lastName} </p>
+                                    <span className="card-title">Applicant Info</span>
+                                    <p><i class="fas fa-user"></i> {application.users && application.users.firstName} {application.users && application.users.firstName} </p>
                                     <p><i className="fas fa-paper-plane"></i> {email} </p>
                                     <p><i className="fas fa-phone"></i> {phoneNumber}</p>
                                     <br />
                                     <a href={linkedIn} target="blank" className="btn customize-this-btn">Profile</a>
-                                    <button onClick={() => approveJobApplication(id)} className="btn blue move-right">Approve <i className="fas fa-check"></i></button>
+                                    <button onClick={() => approveJobApplication(application.id)} className="btn blue move-right">Approve <i className="fas fa-check"></i></button>
                                 </div>
                             </div>
                         </div>
